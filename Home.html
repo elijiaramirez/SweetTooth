@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+    <style>
+       
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8e0e0; 
+            color: #4f4f4f;
+            margin: 0 auto;
+        }
+
+        header {
+    background-color: #ffb3cc; 
+    color: #333;
+    padding: 10px 30px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.logo img {
+    width: 90px; 
+}
+
+.phone-call {
+    background-color: #ff66b2;
+    border-radius: 50%;
+    padding: 12px;
+    margin-left: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.phone-call img {
+    width: 35px; 
+    height: 35px;
+}
+
+
+header nav {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+header nav ul li {
+    font-weight: bold;
+    font-size: 20px; 
+}
+
+header nav ul li a {
+    color: #4f4f4f;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+header nav ul li a:hover {
+    color: white; 
+    border-bottom: 3px solid #ff66b2;
+}
+
+.scrolling-text-wrapper {
+            background-color: #ff99cc;
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .scrolling-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scrolling-text 10s linear infinite;
+        }
+
+        @keyframes scrolling-text {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .hero-section {
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-section .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('hero.jpg'); 
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); 
+    z-index: -1; 
+}
+
+.hero-section .content {
+    z-index: 1; 
+}
+
+.hero-section h1 {
+    font-size: 48px; 
+    color: #a51a50;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    letter-spacing: 2px; 
+    line-height: 1.2; 
+}
+
+.hero-section p {
+    font-size: 24px; 
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.hero-section .order-btn {
+    background-color: #ff66b2;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease;
+}
+
+.hero-section .order-btn:hover {
+    background-color: #ff3385;
+}
+
+       
+        .dessert-section,
+        .flavors-section,
+        .drinks-snacks-section,
+        .gift-section {
+            padding: 40px;
+            text-align: center;
+            background-color: #ffe6f1;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .dessert-section .title,
+        .flavors-section .title,
+        .drinks-snacks-section .title,
+        .gift-section .title {
+            font-size: 24px;
+            color: #ff66b2;
+            margin-bottom: 20px;
+        }
+
+        .categories,
+        .flavors,
+        .gift-placeholders {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .category,
+        .flavor,
+        .gift-placeholder {
+            width: 150px;
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .category-container,
+        .flavor-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .category-container:hover,
+        .flavor-container:hover {
+            transform: rotateY(180deg);
+        }
+
+        .category-front,
+        .category-back,
+        .flavor-front,
+        .flavor-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .category-front img,
+        .flavor-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .category-back,
+        .flavor-back {
+            background-color: #ff99cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transform: rotateY(180deg);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .category-back p,
+        .flavor-back p {
+            font-size: 16px;
+            color: #fff;
+        }
+        .gift-placeholders {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 20px; 
+    padding: 10px 0; 
+    width: 100%;
+    overflow-x: auto; 
+}
+
+.gift-placeholder {
+    width: 250px; 
+    height: 300px; 
+    background-color: #ff99cc;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+.gift-placeholder:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.gift-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: opacity 0.3s ease-in-out; 
+}
+
+.gift-placeholder:hover img {
+    opacity: 0.85; 
+}
+        .drinks-snacks {
+            
+            display: flex;
+            gap: 20px;
+        }
+
+        .drinks-snacks .photo {
+    margin: 0 auto;
+    width: 600px; 
+    height: 300px; 
+    background-color: #ff99cc; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.drinks-snacks .photo img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+        
+        .call-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .call-modal .modal-content {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .call-modal .modal-content h2 {
+            color: #ff66b2;
+        }
+
+        .call-modal .modal-content p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .close-call {
+            background-color: #ff3385;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-call:hover {
+            background-color: #ff1a73;
+        }
+
+       
+        /* Footer Styles */
+        footer {
+            background-color: #ffb3cc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #4f4f4f;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #4f4f4f;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #ff66b2;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <div class="phone-call" onclick="showPhoneCallModal()">
+                <img src="phone.png" alt="Phone">
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Faqs.html">FAQs</a></li>
+                <li><a href="About-us.html">About Us</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <div class="scrolling-text-wrapper">
+        <div class="scrolling-text">
+            <span>S-S-S-SUGAR RUSH!</span>
+        </div>
+    </div>
+    <section class="hero-section">
+        <div class="background"></div>
+        <div class="content">
+            <h1>Sweet-Tooth</h1>
+            <p>Satisfy your Cravings, Sweeten Your Day!</p>
+            <a href="Menu.html" class="order-btn">Order Now</a>
+        </div>
+    </section>
+    
+    <div class="dessert-section">
+        <div class="title">CATEGORIES</div>
+        <p>Looking for something?</p>
+        <div class="categories">
+            <div class="category">
+                <div class="category-container">
+                    <div class="category-front">
+                        <img src="frozen.jpg" alt="Frozen">
+                    </div>
+                    <div class="category-back">
+                        <p>Frozen: Brain Freeze!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-container">
+                    <div class="category-front">
+                        <img src="baked.jpg" alt="Baked">
+                    </div>
+                    <div class="category-back">
+                        <p>Baked: Patries!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <div class="category-container">
+                    <div class="category-front">
+                        <img src="fried.jpg" alt="Fried">
+                    </div>
+                    <div class="category-back">
+                        <p>Fried: Crispy snacks!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Flavors Section -->
+    <div class="flavors-section">
+        <div class="title">FLAVORS</div>
+        <p>You are bound to find something to suit your unique taste, why not enjoy yourself a bit and look around to and treat yourself to
+           enjoy what you can have with a click!</p>
+        </p>
+        <div class="flavors">
+            <div class="flavor">
+                <div class="flavor-container">
+                    <div class="flavor-front">
+                        <img src="sweet.jpg" alt="Sweet">
+                    </div>
+                    <div class="flavor-back">
+                        <p>Sweet: Anice dessert never fails to sweeten your day!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flavor">
+                <div class="flavor-container">
+                    <div class="flavor-front">
+                        <img src="salty.jpg" alt="Salty">
+                    </div>
+                    <div class="flavor-back">
+                        <p>Salty: Salty in personality, but savory to eat!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flavor">
+                <div class="flavor-container">
+                    <div class="flavor-front">
+                        <img src="sour.jpg" alt="Sour">
+                    </div>
+                    <div class="flavor-back">
+                        <p>Sour: Mean? nah, just can't hadle a bit of punch!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flavor">
+                <div class="flavor-container">
+                    <div class="flavor-front">
+                        <img src="spicy.jpg" alt="Spicy">
+                    </div>
+                    <div class="flavor-back">
+                        <p>Spicy: It's about to be lit up in here!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drinks and Snacks Section -->
+    <div class="drinks-snacks-section">
+        <div class="title">DRINKS & DESSERTS</div>
+        <p>Drinks? Snacks? Why pick when you can have both! Pick from our many Selection of drinks and snacks to get you throughout the day.
+           What better way to keep being energize other that sugary goodness! Don't be shy, take as much as you can. Everyone here has a
+           sweet-tooth!</p>
+        </p>
+        <div class="drinks-snacks">
+            <div class="photo">
+                <img src="drinks.jpg" alt="Drinks">
+            </div>
+            <div class="photo">
+                <img src="desserts.jpg" alt="Dessert">
+            </div>
+        </div>
+    </div>
+
+ 
+    <div class="scrolling-text-wrapper">
+        <div class="scrolling-text">
+            <span>Welcome to Sweet World! Explore the finest sweets here!</span>
+        </div>
+    </div>
+
+    
+    <div class="gift-section">
+        <div class="title">SUGAR OVERLOAD</div>
+        <p>Enjoy your life, whether it be desserts or drinks! We have it all here in Sweet-Tooth!
+            Have fun exploring more flavorful experiences here at our shop. We have more than just
+            chocolate here! It is time to get out of your comfort zone to take a try on more sugar-filled
+            adventures with us.</p>
+    
+        <div class="gift-placeholders">
+            <div class="gift-placeholder">
+                <img src="one.jpg" alt="Gift 1">
+            </div>
+            <div class="gift-placeholder">
+                <img src="two.jpg" alt="Gift 2">
+            </div>
+            <div class="gift-placeholder">
+                <img src="three.jpg" alt="Gift 3">
+            </div>
+            <div class="gift-placeholder">
+                <img src="four.jpg" alt="Gift 4">
+            </div>
+            <div class="gift-placeholder">
+                <img src="five.jpg" alt="Gift 5">
+            </div>
+        </div>
+    </div>
+
+  
+    <footer>
+        <p>&copy; 2024 Sweet-Tooth. All rights reserved.</p>
+        <div>
+            <a href="terms-of-service.html">Terms of Service</a> |
+            <a href="privacy-policy.html">Privacy Policy</a> |
+            <a href="https://facebook.com/sweet-treats" target="_blank">Facebook</a> |
+            <a href="https://instagram.com/sweet-treats" target="_blank">Instagram</a>
+        </div>
+
+        <div class="title">COME JOIN THE FUN!</div>
+    </footer>
+
+    <script>
+      
+        function showPhoneCallModal() {
+            document.getElementById('callModal').style.display = 'flex';
+        }
+
+        
+        function closePhoneCallModal() {
+            document.getElementById('callModal').style.display = 'none';
+        }
+
+       
+    const orderButton = document.querySelector('.order-btn');
+
+    orderButton.addEventListener('click', function() {
+        
+        window.location.href = 'Order.html'; 
+    });
+    </script>
+
+</body>
+</html>

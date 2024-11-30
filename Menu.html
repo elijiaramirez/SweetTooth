@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <div class="phone-call" onclick="showPhoneCallModal()">
+                <img src="phone.png" alt="Phone">
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Faqs.html">FAQs</a></li>
+                <li><a href="About-us.html">About Us</a></li>
+            </ul>
+        </nav>
+
+        
+    </header>
+
+    
+    <div class="banner">
+        <div class="banner-content">
+            <h1>MENU</h1>
+        </div>
+    </div>
+    <div class="cart-dashboard" id="cart-dashboard">
+        <h3>Your Cart</h3>
+        <div id="cart-items">
+            <p>No items in the cart</p>
+        </div>
+        <div class="cart-total">
+            <span>Total: Php <span id="total-price">0</span></span>
+        </div>
+        <button class="order-button" id="process-order"  onclick="processOrder()">Process Order</button>
+    </div>
+    <div class="menu-container">
+       
+        <div class="menu-section">
+            <h2>Frozen</h2>
+            <div class="menu-subsection">
+                <h3>Sweet</h3>
+                <ul>
+                    <li>
+                        <img src="bombe.jpg" alt="Ice Cream Bombe">
+                        <span class="item-name">Ice Cream Bombe</span>
+                        <span class="item-price">Php.250</span>
+                        <button class="add-to-cart" data-name="Ice Cream Bombe" data-price="250">Add to Cart</button>
+
+                        <img src="pavola.jpg" alt="Frozen Pavola">
+                        <span class="item-name">Frozen Pavola</span>
+                        <span class="item-price">Php.175</span>
+                        <button class="add-to-cart" data-name="Frozen Pavola" data-price="175">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="yogurt.jpg" alt="Yogurt and Buttermilk Panna Cotta">
+                        <span class="item-name">Yogurt and Buttermilk <br>Panna Cotta</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Yogurt and Buttermilk Panna Cotta" data-price="125">Add to Cart</button>
+                       
+                        <img src="alaska.jpg" alt="Red, White, and Blue Alaska">
+                        <span class="item-name">Red, White, and <br>Blue Alaska</span>
+                        <span class="item-price">Php.300</span>
+                        <button class="add-to-cart" data-name="Red, White, and Blue Alaska" data-price="300">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Sour</h3>
+                <ul>
+                    <li>
+                        <img src="pink.jpg" alt="Pink Frozen Lemonade">
+                        <span class="item-name">Pink Frozen Lemonade</span>
+                        <span class="item-price">Php.250</span>
+                        <button class="add-to-cart" data-name="Pink Frozen Lemonade" data-price="250">Add to Cart</button>
+                        <img src="honey.jpg" alt="Honeydew Melon and Cilantro Ice Pops">
+                        <span class="item-name">Honeydew Melon and <br>Cilantro Ice Pops</span>
+                        <span class="item-price">Php.75</span>
+                        <button class="add-to-cart" data-name="Honeydew Melon and Cilantro Ice Pops" data-price="75">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="colada.jpg" alt="Cocoa Colada Ice Pops">
+                        <span class="item-name">Cocoa Colada Ice Pops</span>
+                        <span class="item-price">Php.75</span>
+                        <button class="add-to-cart" data-name="Cocoa Colada Ice Pops" data-price="75">Add to Cart</button>
+                        
+                        <img src="caramel.jpg" alt="Chocolate Pots Topped With Salted Caramel Toffee">
+                        <span class="item-name">Chocolate Pots <br>Topped With Salted <br>Caramel Toffee</span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Chocolate Pots Topped With Salted Caramel Toffee" data-price="200">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Salty</h3>
+                <ul>
+                    <li>
+                        <img src="cone.jpg" alt="Salted Caramel Ice Cream Cone Cake">
+                        <span class="item-name">Salted Caramel Ice Cream <br> Cone Cake</span>
+                        <span class="item-price">Php.250</span>
+                        <button class="add-to-cart" data-name="Salted Caramel Ice Cream Cone Cake" data-price="250">Add to Cart</button>
+
+                        <img src="peanut.jpg" alt="Peanut brittle Ice Cream and Popcorn Sundae">
+                        <span class="item-name">Peanut brittle Ice Cream <br> and Popcorn Sundae</span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Peanut brittle Ice Cream and Popcorn Sundae" data-price="200">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="pumpkin.jpg" alt="Pumpkin Pie Ice Cream With Salted Caramel Sauce">
+                        <span class="item-name">Pumpkin Pie Ice Cream <br>With Salted Caramel Sauce</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Pumpkin Pie Ice Cream With Salted Caramel Sauce" data-price="125">Add to Cart</button>
+
+                        <img src="mousse.jpg" alt="Frozen Margarita Mousse">
+                        <span class="item-name">           Frozen Margarita Mousse        </span>
+                        <span class="item-price">Php.175</span>
+                        <button class="add-to-cart" data-name="Frozen Margarita Mousse" data-price="175">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Spicy</h3>
+                <ul>
+                    <li>
+                        <img src="chili.jpg" alt="Chili Crisp Ice Cream Sundae">
+                        <span class="item-name">Chili Crisp Ice Cream <br>Sundae </span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Chili Crisp Ice Cream Sundae" data-price="200">Add to Cart</button>
+
+                        <img src="mango.jpg" alt="Spicy Mango No-churn Ice Cream">
+                        <span class="item-name">Spicy Mango No-churn <br>Ice Cream</span>
+                        <span class="item-price">Php.175</span>
+                        <button class="add-to-cart" data-name="Spicy Mango No-churn Ice Cream" data-price="175">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="black.jpg" alt="Ginger-black Pepper Ice Cream Sandwiches " class="black">
+                        <span class="item-name">Ginger-black Pepper Ice Cream <br> Sandwiches </span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Ginger-black Pepper Ice Cream Sandwiches" data-price="100">Add to Cart</button>
+
+                        <img src="teq.jpg" alt="Spicy Tequila Sunrise Popsicles" class="teq">
+                        <span class="item-name">   Spicy Tequila Sunrise Popsicles</span>
+                        <span class="item-price">Php.75</span>
+                        <button class="add-to-cart" data-name="Spicy Tequila Sunrise Popsicles" data-price="75">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+       
+        <div class="menu-section">
+            <h2>Baked</h2>
+            <div class="menu-subsection">
+                <h3>Sweet</h3>
+                <ul>
+                    <li>
+                        <img src="smore.jpg" alt="S'mores Cheesecake">
+                        <span class="item-name">S'mores Cheesecake </span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="S'mores Cheesecake" data-price="100">Add to Cart</button>
+
+                        <img src="stre.jpg" alt="Streusel Ed Zucchini Bundt Cake">
+                        <span class="item-name">Streusel Ed Zucchini <br>Bundt Cake</span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Streusel Ed Zucchini Bundt Cake" data-price="200">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="cherry.jpg" alt="Rhubarb Cherry Pie">
+                        <span class="item-name">Rhubarb Cherry Pie</span>
+                        <span class="item-price">Php.175</span>
+                        <button class="add-to-cart" data-name="Rhubarb Cherry Pie" data-price="175">Add to Cart</button>
+
+                        <img src="baklava.jpg" alt="Baklava Cheesecake">
+                        <span class="item-name">Baklava Cheesecake</span>
+                        <span class="item-price">Php.300</span>
+                        <button class="add-to-cart" data-name="Baklava Cheesecake" data-price="300">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Sour</h3>
+                <ul>
+                    <li>
+                        <img src="lime.jpg" alt="Lemon Lime bars">
+                        <span class="item-name">Lemon Lime bars</span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Lemon Lime bars" data-price="100">Add to Cart</button>
+
+                        <img src="turtle.jpg" alt="Chocolate Espresso Hot tortel">
+                        <span class="item-name">Chocolate Espresso <br>Hot Turtle</span>
+                        <span class="item-price">Php.250</span>
+                        <button class="add-to-cart" data-name="Chocolate Espresso Hot Turtle" data-price="250">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="bars.jpg" alt="Lavender Lemon Bars">
+                        <span class="item-name">Lavender Lemon Bars</span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Lavender Lemon Bars" data-price="100">Add to Cart</button>
+
+                        <img src="ricotta.jpg" alt="Lemon Ricotta cake">
+                        <span class="item-name">&nbsp; Lemon Ricotta Cake</span>
+                        <span class="item-price">Php.250</span>
+                        <button class="add-to-cart" data-name="Lemon Ricotta cake" data-price="250">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Salty</h3>
+                <ul>
+                    <li>
+                        <img src="chai.jpg" alt="Chai Truffle Tart">
+                        <span class="item-name">Chai Truffle Tart</span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Chai Truffle Tart" data-price="100">Add to Cart</button>
+
+                        <img src="toffee.jpg" alt="Peanut Pretzels Toffee Bark">
+                        <span class="item-name">Peanut Pretzels <br>Toffee Bark</span>
+                        <span class="item-price">Php.175</span>
+                        <button class="add-to-cart" data-name="Peanut Pretzels Toffee Bark" data-price="175">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="cash.jpg" alt="Salted Caramel Walnut Bark">
+                        <span class="item-name">Salted Caramel Walnut <br>Bark</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Salted Caramel Walnut Bark" data-price="125">Add to Cart</button>
+
+                        <img src="cheese.jpg" alt="Cheese Bourekas">
+                        <span class="item-name">&nbsp;&nbsp;&nbsp;&nbsp;Cheese Bourekas</span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Cheese Bourekas" data-price="200">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Spicy</h3>
+                <ul>
+                    <li>
+                        <img src="peach.jpg" alt="Peach black berry upsidedown cake">
+                        <span class="item-name">Peach black berry <br>upsidedown cake</span>
+                        <span class="item-price">Php.300</span>
+                        <button class="add-to-cart" data-name="Peach black berry upsidedown cake" data-price="300">Add to Cart</button>
+
+                        <img src="cider.jpg" alt="Apple cider bread">
+                        <span class="item-name">Apple cider bread</span>
+                        <span class="item-price">Php.250</span>
+                        <button class="add-to-cart" data-name="Apple cider bread" data-price="250">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="mexican.jpg" alt="Mexican Hot Chocolate Brownies">
+                        <span class="item-name">Mexican Hot Chocolate <br> Brownies</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Mexican Hot Chocolate Brownies" data-price="125">Add to Cart</button>
+
+                        <img src="upside.png" alt="Spicy Caribbean Pineapple Spicy Upside Down Cake">
+                        <span class="item-name">Spicy Caribbean <br>Pineapple Spicy  Cake</span>
+                        <span class="item-price">Php.300</span>
+                        <button class="add-to-cart" data-name="Cheese Bourekas" data-price="300">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+      
+        <div class="menu-section">
+            <h2>Fried</h2>
+            <div class="menu-subsection">
+                <h3>Sweet</h3>
+                <ul>
+                    <li>
+                        <img src="deep.jpg" alt="Deep-fried Candy Bars On A Stick">
+                        <span class="item-name">Deep-fried Candy Bars </span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Deep-fried Candy Bars On A Stick" data-price="100">Add to Cart</button>
+
+                        <img src="potato.jpg" alt="Fried Sweet Potato Pies">
+                        <span class="item-name">Fried Sweet Potato Pies</span>
+                        <span class="item-price">Php.75</span>
+                        <button class="add-to-cart" data-name="Fried Sweet Potato Pies" data-price="75">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="latkes.jpg" alt="Vanilla and Cinnamon Apple Latkes">
+                        <span class="item-name">Vanilla and Cinnamon <br>Apple Latkes</span>
+                        <span class="item-price">Php.175</span>
+                        <button class="add-to-cart" data-name="Vanilla and Cinnamon Apple Latkes" data-price="175">Add to Cart</button>
+
+                        <img src="fritters.jpg" alt="Apple Fritters">
+                        <span class="item-name">Apple Fritters with<br>Yeast</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Apple Fritters" data-price="125">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Sour</h3>
+                <ul>
+                    <li>
+                        <img src="qa.jpg" alt="Qatayer">
+                        <span class="item-name">Qatayer</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Qatayer" data-price="125">Add to Cart</button>
+
+                        <img src="olie.jpg" alt="Qatayer">
+                        <span class="item-name">Oliebol</span>
+                        <span class="item-price">Php.175</span>
+                        <button class="add-to-cart" data-name="Qatayer" data-price="175">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="talu.jpg" alt="Talumba">
+                        <span class="item-name">Talumba</span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Talumba" data-price="200">Add to Cart</button>
+
+                        <img src="sal.jpg" alt="Salami Chips">
+                        <span class="item-name">Salami <br>Chips</span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Salami Chips" data-price="100">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Salty</h3>
+                <ul>
+                    <li>
+                        <img src="nor.jpg" alt="Crispy Norwegian Bows">
+                        <span class="item-name">Crispy Bows</span>
+                        <span class="item-price">Php.75</span>
+                        <button class="add-to-cart" data-name="Crispy Bows" data-price="75">Add to Cart</button>
+
+                        <img src="pica.jpg" alt="Picarones">
+                        <span class="item-name">Picarones</span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Picarones" data-price="100">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="chu.jpg" alt="Churros">
+                        <span class="item-name">Churros</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Churros" data-price="125">Add to Cart</button>
+
+                        <img src="lok.jpg" alt="Lokma">
+                        <span class="item-name">Lokma</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Lokma" data-price="125">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-subsection">
+                <h3>Spicy</h3>
+                <ul>
+                    <li>
+                        <img src="cherry.jpg" alt="Cherry Crisp">
+                        <span class="item-name">Cherry Crisp</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Cherry Crisp" data-price="125">Add to Cart</button>
+
+                        <img src="chak.jpg" alt="Chakli">
+                        <span class="item-name">Chakli</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Chakli" data-price="125">Add to Cart</button>
+                    </li>
+                    <li>
+                        <img src="sit.jpg" alt="Sitara Foods Hot Spicy Kaju Fried">
+                        <span class="item-name">Sitara Foods Hot Super Spicy <br>Kaju Fried</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Sitara Foods Hot Spicy Kaju Fried" data-price="125">Add to Cart</button>
+
+                        <img src="buff.jpg" alt="Buffalo Cauliflower">
+                        <span class="item-name">Buffalo Cauliflower</span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Buffalo Cauliflower" data-price="200">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+     
+        <div class="menu-section">
+            <h2>Drinks</h2>
+            <div class="menu-subsection">
+                <h3>Coffee</h3>
+                <ul>
+                    <li>
+                        <img src="pump.jpg" alt="Pumpkin Chai Latte">
+                        <span class="item-name">Pumpkin Chai Latte</span>
+                        <span class="item-price">Php.165</span>
+                        <button class="add-to-cart" data-name="Pumpkin Chai Latte" data-price="165">Add to Cart</button>
+
+                        <img src="frap.jpg" alt="Vanilla Bean Frappuccino">
+                        <span class="item-name">Vanilla Bean Frappuccino</span>
+                        <span class="item-price">Php.200</span>
+                        <button class="add-to-cart" data-name="Vanilla Bean Frappuccino" data-price="200">Add to Cart</button>
+                    </li>
+                </ul>
+                <h3>Tea</h3>
+                <div class="menu-subsection">
+                <ul>
+                    <li>
+                        <img src="ice.jpg" alt="Iced Tea">
+                        <span class="item-name">Iced Tea</span>
+                        <span class="item-price">Php.75</span>
+                        <button class="add-to-cart" data-name="Iced Tea" data-price="75">Add to Cart</button>
+
+                        <img src="milk.jpg" alt="Milk Tea">
+                        <span class="item-name">Milk Tea</span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Milk Tea" data-price="100">Add to Cart</button>
+                    </li>
+                </ul>
+                </div>
+
+                <div class="menu-subsection">
+                <h3>Tropical</h3>
+                <ul>
+                    <li>
+                        <img src="lul.jpg" alt="Lulada">
+                        <span class="item-name">Lulada</span>
+                        <span class="item-price">Php.100</span>
+                        <button class="add-to-cart" data-name="Lulada" data-price="100">Add to Cart</button>
+
+                        <img src="tri.jpg" alt="Triple Berry Sparkler">
+                        <span class="item-name">Triple Berry <br> Sparkler</span>
+                        <span class="item-price">Php.125</span>
+                        <button class="add-to-cart" data-name="Triple Berry Sparkler" data-price="125">Add to Cart</button>
+                    </li>
+                </ul>
+                </div>
+                <div class="menu-subsection">
+                    <h3>Milkshake/Slushie</h3>
+                    <ul>
+                        <li>
+                            <img src="choc.jpg" alt="Chocolate Milkshake">
+                            <span class="item-name">Chocolate Milkshake</span>
+                            <span class="item-price">Php.250</span>
+                            <button class="add-to-cart" data-name="Chocolate Milkshake" data-price="250">Add to Cart</button>
+    
+                            <img src="cream.jpg" alt="Creamsicle Milkshakes">
+                            <span class="item-name">Creamsicle Milkshakes</span>
+                            <span class="item-price">Php.175</span>
+                            <button class="add-to-cart" data-name="Creamsicle Milkshakes" data-price="175">Add to Cart</button>
+                        </li>
+                    </ul>
+            </div>
+            
+            <button onclick="scrollToDashboard()" class="back-button">Back to your shopping cart</button>
+            <script>
+             
+let cart = [];
+
+
+const cartItemsContainer = document.getElementById('cart-items');
+const totalPriceElement = document.getElementById('total-price');
+const processOrderButton = document.getElementById('process-order');
+
+
+function updateCart() {
+    
+    cartItemsContainer.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>No items in the cart</p>';
+        processOrderButton.disabled = true;
+        totalPriceElement.textContent = '0';
+        return;
+    }
+
+    let total = 0;
+
+   
+    cart.forEach((item, index) => {
+        const cartItemElement = document.createElement('div');
+        cartItemElement.classList.add('cart-item');
+
+        cartItemElement.innerHTML = `
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">Php ${item.price}</span>
+            <input type="number" class="item-quantity" value="${item.quantity}" min="1" data-index="${index}">
+            <span class="total-price">Php ${item.price * item.quantity}</span>
+            <button class="remove-item" data-index="${index}">-</button>
+        `;
+
+        cartItemsContainer.appendChild(cartItemElement);
+
+        total += item.price * item.quantity;
+    });
+
+    totalPriceElement.textContent = total.toFixed(2);
+    processOrderButton.disabled = cart.length === 0;
+}
+
+
+cartItemsContainer.addEventListener('input', (event) => {
+    if (event.target.classList.contains('item-quantity')) {
+        const index = event.target.dataset.index;
+        const quantity = parseInt(event.target.value);
+        if (quantity >= 1) {
+            cart[index].quantity = quantity;
+            updateCart();
+        }
+    }
+});
+
+
+cartItemsContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove-item')) {
+        const index = event.target.dataset.index;
+        cart.splice(index, 1);
+        updateCart();
+    }
+});
+
+
+function addItemToCart(name, price) {
+    const itemIndex = cart.findIndex(item => item.name === name);
+    if (itemIndex === -1) {
+        cart.push({ name, price, quantity: 1 });
+    } else {
+        cart[itemIndex].quantity += 1;
+    }
+    updateCart();
+}
+function scrollToDashboard() {
+    document.getElementById("cart-dashboard").scrollIntoView({ behavior: "smooth" });
+}
+
+function processOrder() {
+    const cartItems = document.getElementById("cart-items").innerHTML.trim();
+
+    if (cartItems === "<p>No items in the cart</p>") {
+        alert("Your cart is empty. Please add items before processing your order.");
+    } else {
+        alert("Your order has been successfully processed! Thank you!.");
+        
+    }
+}
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const name = event.target.dataset.name;
+        const price = parseInt(event.target.dataset.price);
+        addItemToCart(name, price);
+    });
+});
+
+            </script>
+</body>
+</html>
